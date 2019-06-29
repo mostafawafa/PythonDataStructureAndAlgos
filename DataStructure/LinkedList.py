@@ -4,7 +4,7 @@ from Node import Node
 
 class LinkedList:
 
-    def __init__(self,val): 
+    def __init__(self,val = []): 
         self.head = None
         self.tail = None
         if(isinstance(val, list)):
@@ -26,6 +26,11 @@ class LinkedList:
         self.head = node
 
 
+    def removeFromStart(self):
+        node = self.head
+        self.head = node.next
+        return node
+
     def addToEnd(self,node):
         if(self.head == None):
             self.head = node
@@ -42,6 +47,11 @@ class LinkedList:
 
 
 
-link =  LinkedList([3,4,5,65])
-link.addToStart(Node(654))
-link.traverse()
+if __name__ == "__main__":
+    linkedlist = LinkedList()
+    linkedlist.addToEnd(Node(5))
+    linkedlist.addToEnd(Node(2))
+    linkedlist.addToEnd(Node(54))
+    linkedlist.addToStart(Node(1))
+
+    linkedlist.traverse()
